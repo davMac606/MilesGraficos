@@ -58,6 +58,17 @@ namespace testGraphics
             intersecaoY = (int)(m1 * intersecaoX + n1);
             return true;
         }
+
+        private double anguloCalc(double m1, double m2)
+        {
+            if (m1 == m2)
+            {
+                return -1;
+            }
+            double angulo = Math.Atan((m2 - m1) / (1 + m1 * m2));
+            return angulo;
+        }
+
         private void btnDraw_Click(object sender, EventArgs e)
         {
             picDrawing.Refresh();
@@ -156,6 +167,9 @@ namespace testGraphics
                         MessageBox.Show("As retas não se interceptam!", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     picDrawing.Refresh();
                 }
+
+                    double angulo = anguloCalc(m1, m2);
+                MessageBox.Show("Ângulo entre as retas: " + angulo + ".", "Alerta do Sistema", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 
 
                
